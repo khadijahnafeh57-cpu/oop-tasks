@@ -1,23 +1,34 @@
-#include <stdio.h>
+#include <iostream>
+using namespace std;
 
 // Creating structure
-struct Date {
+struct Date
+{
     int month;
     int day;
     int year;
 };
 
-int main() {
-    
+int main()
+{
     // Declaring structure variable
-    struct Date d;
+    Date d;
 
-    // Taking input from user
-    printf("Enter date (MM/DD/YYYY): ");
-    scanf("%d/%d/%d", &d.month, &d.day, &d.year);
+    // Taking input
+    cout << "Enter date (MM/DD/YYYY): ";
+    cin >> d.month;
+    cin.ignore(); // ignores '/'
 
-    // Displaying date
-    printf("Date entered: %02d/%02d/%04d\n", d.month, d.day, d.year);
+    cin >> d.day;
+    cin.ignore(); // ignores '/'
+
+    cin >> d.year;
+
+    // Displaying output
+    cout << "Entered date is: "
+         << d.month << "/"
+         << d.day << "/"
+         << d.year;
 
     return 0;
 }
